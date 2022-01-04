@@ -13,6 +13,7 @@
     <el-dropdown>
       <span class="user">
         <i class="el-icon-s-custom" />
+        {{userName}}
         <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
@@ -28,14 +29,16 @@ export default {
   data () {
     return {
       taskClass: true,
-      dashBoardClass: false
+      dashBoardClass: false,
+      userName: ''
     }
   },
   methods: {
     logout () {
       console.log('登出')
       const _this = this
-      localStorage.setItem('Authorization', _this.userToken)
+      localStorage.removeItem('Authorization')
+      localStorage.removeItem('userName')
       _this.$router.replace('/')
     },
     change (target) {
@@ -49,6 +52,9 @@ export default {
       const _this = this
       _this.$router.replace('/' + target)
     }
+  },
+  created () {
+    this.userName = localStorage.getItem('userName')
   }
 }
 </script>

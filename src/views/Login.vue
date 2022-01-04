@@ -55,6 +55,7 @@ export default {
           type: 'success',
           message: '登陆成功'
         })
+        localStorage.setItem('userName', res.data.userName)
       })
     }
   }

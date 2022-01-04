@@ -22,7 +22,7 @@ export default {
     text-align: center;
     color: #444;
     width: calc(100vw - 180px);
-
+    z-index: -1;
   }
 
 </style>
